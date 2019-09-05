@@ -34,4 +34,29 @@ let menuItems = [
   
 */
 
+function createMenuComp(article){
+  
+  //elements
+  const menu = document.createElement('div');
+  const list = document.createElement('ul');
 
+  //structure
+  menu.appendChild(list);
+
+  //class 
+  menu.classList.add('menu');
+
+  //items
+  article.forEach(i => {
+    let newItem = document.createElement('li');
+    list.appendChild(newItem);
+    newItem.textContent = i;
+  })
+  let menuButton = document.querySelector('.menu-button');
+  menuButton.addEventListener('click', () => menu.classList.toggle('menu--open'));
+  
+  return menu;
+}
+
+let menuBar = document.querySelector('.header');
+menuBar.appendChild(createMenuComp(menuItems));
