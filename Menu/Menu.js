@@ -34,7 +34,7 @@ let menuItems = [
   
 */
 
-function createMenuComp(article){
+function createMenuComp(arr){
   
   //elements
   const menu = document.createElement('div');
@@ -47,13 +47,14 @@ function createMenuComp(article){
   menu.classList.add('menu');
 
   //items
-  article.forEach(i => {
+  arr.forEach(i => {
     let newItem = document.createElement('li');
-    list.appendChild(newItem);
     newItem.textContent = i;
+    list.appendChild(newItem);
+    
   })
   let menuButton = document.querySelector('.menu-button');
-  menuButton.addEventListener('click', () => menu.classList.toggle('menu--open'));
+  menuButton.addEventListener('click', (event) => menu.classList.toggle('menu--open'));
   
   return menu;
 }
